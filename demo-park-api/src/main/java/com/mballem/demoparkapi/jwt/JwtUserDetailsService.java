@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor @Service
-public class JwtUserDetaisService implements UserDetailsService {
+public class JwtUserDetailsService implements UserDetailsService {
 
     private final UsuarioService usuarioService;
     @Override

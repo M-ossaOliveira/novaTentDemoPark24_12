@@ -1,7 +1,7 @@
 package com.mballem.demoparkapi.web.controller;
 
 import com.mballem.demoparkapi.jwt.JwtToken;
-import com.mballem.demoparkapi.jwt.JwtUserDetaisService;
+import com.mballem.demoparkapi.jwt.JwtUserDetailsService;
 import com.mballem.demoparkapi.web.dto.UsuarioLoginDto;
 import com.mballem.demoparkapi.web.exception.ErrorMessage;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1")
 @Slf4j @RestController @RequiredArgsConstructor
 public class AutenticacaoController {
-    private final JwtUserDetaisService detailsService;
+    private final JwtUserDetailsService detailsService;
     private final AuthenticationManager authenticationManager;
     @PostMapping("/auth")
     public ResponseEntity<?> autenticar(@RequestBody @Valid UsuarioLoginDto dto,
