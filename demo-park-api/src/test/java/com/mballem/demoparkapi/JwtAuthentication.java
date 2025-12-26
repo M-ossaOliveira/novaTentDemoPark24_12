@@ -9,7 +9,7 @@ import java.util.function.Consumer;
 
 public class JwtAuthentication {
 
-    public static Consumer<HttpHeaders> geetHeaderAuthorization(
+    public static Consumer<HttpHeaders> getHeaderAuthorization(
             WebTestClient client,String username, String password){
         String token= client
                 .post()
