@@ -18,11 +18,15 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+
+import java.awt.print.Pageable;
+import java.util.List;
 
 @Tag(name = "Clientes", description = "Contém todas as opereções relativas ao recurso de um cliente")
 @RequiredArgsConstructor
@@ -78,5 +82,12 @@ public class ClienteController {
     public ResponseEntity<ClienteResponseDto>getById(@PathVariable Long id){
         Cliente cliente=clienteService.buscarPorId(id);
         return ResponseEntity.ok(ClienteMapper.toDto(cliente));
+    }
+
+    @GetMapping()
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<Page<Cliente>>getAll(Pageable pageable){
+        Page<Cliente> clientes=clienteService.buscarTodos(pageable);
+        return ResponseEntity.ok(clientes);
     }
 }
