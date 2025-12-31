@@ -41,7 +41,7 @@ public class VagaController {
                     @ApiResponse(responseCode = "422", description = "Recurso não processado por falta de dados ou dados inválidos",
                             content = @Content(mediaType = " application/json;charset=UTF-8",
                                     schema = @Schema(implementation = ErrorMessage.class))),
-                    @ApiResponse(responseCode = "403", description = "Recurso não permito ao perfil de CLIENTE",
+                    @ApiResponse(responseCode = "403", description = "Recurso não permitido ao perfil de CLIENTE",
                             content = @Content(mediaType = " application/json;charset=UTF-8",
                                     schema = @Schema(implementation = ErrorMessage.class))
                     )
@@ -68,7 +68,7 @@ public class VagaController {
                     @ApiResponse(responseCode = "404", description = "Vaga não localizada",
                             content = @Content(mediaType = " application/json;charset=UTF-8",
                                     schema = @Schema(implementation = ErrorMessage.class))),
-                    @ApiResponse(responseCode = "403", description = "Recurso não permito ao perfil de CLIENTE",
+                    @ApiResponse(responseCode = "403", description = "Recurso não permitido ao perfil de CLIENTE",
                             content = @Content(mediaType = " application/json;charset=UTF-8",
                                     schema = @Schema(implementation = ErrorMessage.class))
                     )
