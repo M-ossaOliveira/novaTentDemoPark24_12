@@ -26,8 +26,9 @@ public class Vaga implements Serializable {
     private Long Id;
     @Column(name = "codigo",nullable = false,unique = true, length = 4)
     private String codigo;
+    @Column(name = "status", nullable = false)
     @Enumerated(EnumType.STRING)
-    private StatusVaga statusVaga;
+    private StatusVaga status;
 
     @CreatedDate
     @Column(name = "data_criacao")

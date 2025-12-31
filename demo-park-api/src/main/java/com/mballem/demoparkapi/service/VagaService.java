@@ -9,6 +9,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import static com.mballem.demoparkapi.entity.Vaga.StatusVaga.LIVRE;
+
 @RequiredArgsConstructor
 @Service
 public class VagaService {
@@ -32,4 +34,10 @@ public class VagaService {
                                                               );
     }
 
+    @Transactional(readOnly = true)
+    public Vaga buscarPorVagaLivre() {
+        return  vagaRepository.findFirstByStatus(LIVRE).orElseThrow(
+                ()-> new EntityNotFoundException("Nenhuma vaga livre foi encontrada")
+                                                                   );
+    }
 }

@@ -34,6 +34,11 @@ public class ClienteVaga {
     private BigDecimal valor;
     @Column(name = "desconto", columnDefinition = "decimal(7,2)")
     private BigDecimal desconto;
+    @Column(name = "data_entrada", nullable = false)
+    private LocalDateTime dataEntrada;
+    @Column(name = "data_saida")
+    private LocalDateTime dataSaida;
+
 
     //abaixo relacionamento
     @ManyToOne
